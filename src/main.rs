@@ -123,5 +123,6 @@ fn main() {
     let rec4 = Rectangle::square(3);
     println!("Can rec1 hold rec4? {}.", rec1.can_hold(&rec4));
 
+    // call eat_at_rest lib function
     eat_at_restaurant();
 }
