@@ -1,4 +1,5 @@
 use crate::Coin::{Nickle, Penny};
+use restaurant::eat_at_restaurant;
 
 struct Rectangle {
     width: u32,
@@ -121,4 +122,6 @@ fn main() {
 
     let rec4 = Rectangle::square(3);
     println!("Can rec1 hold rec4? {}.", rec1.can_hold(&rec4));
+
+    eat_at_restaurant();
 }
