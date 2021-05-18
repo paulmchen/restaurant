@@ -1,80 +1,7 @@
-use crate::Coin::{Nickle, Penny};
-use restaurant::eat_at_restaurant;
-
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
-impl Rectangle {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
-
-    fn can_hold(&self, other: &Rectangle) -> bool {
-        self.width > other.width && self.height > other.height
-    }
-
-    fn square(size: u32) -> Rectangle {
-        Rectangle {
-            width: size,
-            height: size,
-        }
-    }
-}
-
-enum IpAddrKind {
-    V4(u8, u8, u8, u8),
-    V6(String),
-}
-
-enum Message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-    ChangeColor(i32, i32, i32),
-}
-
-impl Message {
-    fn call(&self) {
-        // method doing something
-    }
-}
-
-fn route(ip: IpAddrKind) {
-    println!("Ip kind.");
-}
-
-enum UsState {
-    Alabama,
-    Alaska,
-}
-
-enum Coin {
-    Penny,
-    Nickle,
-    Dime,
-    Quarter(UsState),
-}
-
-fn value_in_cents(coin: Coin) -> u8 {
-    match coin {
-        Coin::Penny => 1,
-        Coin::Nickle => 5,
-        Coin::Dime => 10,
-        Coin::Quarter(state) => {
-            println!("State quarter from .");
-            25
-        }
-    }
-}
-
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    match x {
-        None => None,
-        Some(i) => Some(i + 1),
-    }
-}
+use restaurant::{
+    eat_at_restaurant, plus_one, route, value_in_cents, Coin, IpAddrKind, Message, Rectangle,
+    UsState,
+};
 
 fn main() {
     let home = IpAddrKind::V4(127, 0, 0, 1);
@@ -99,8 +26,8 @@ fn main() {
     println!("The coin value is {}.", v);
 
     let seven = Some(5);
-    let eight = plus_one(seven);
-    let none = plus_one(None);
+    let _eight = plus_one(seven);
+    let _none = plus_one(None);
 
     let rec1 = Rectangle {
         width: 30,
